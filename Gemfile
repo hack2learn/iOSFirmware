@@ -3,8 +3,11 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
+
+# Use slim as template engine
+gem "slim-rails"
 # Use mysql as the database for Active Record
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -14,8 +17,20 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Use bootstrap
+gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap_form' # bootstrap forms ;)
+
+gem 'browser-timezone-rails'
+gem 'jquery-datatables-rails', '~> 3.3.0'
+gem "ajax-datatables-rails", git: "https://github.com/antillas21/ajax-datatables-rails.git", branch: 'master'
+gem 'kaminari'
+gem 'lodash-rails' # needed for responsive
+
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-turbolinks' # make jquery work with turbo link without modifications ;)
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

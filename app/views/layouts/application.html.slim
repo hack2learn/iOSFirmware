@@ -1,0 +1,39 @@
+doctype html
+html lang="en"
+  head
+    title iOS Firmware
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+
+    /! HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    /! WARNING: Respond.js doesn't work if you view the page via file://
+    /[if lt IE 9]
+      script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"
+      script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"
+  body
+    .container-fluid
+      = render "layouts/header"
+
+      / main content
+      .row
+        .col-md-12
+
+          - flash.each do |type, message|
+            - unless message.blank?
+              div class="alert alert-dismissible #{bootstrap_class_for(type)}" role="alert"
+                button type="button" class="close" data-dismiss="alert"
+                  span aria-hidden="true" &times;
+                - if ['stdout', 'stderr'].include? type
+                  pre
+                    = message
+                - else
+                  = message
+
+          .content
+            == yield
+      = render "layouts/footer"
